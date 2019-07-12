@@ -1,2 +1,3 @@
 # sembast_flutter_more.dart
-Sembast flutter example
+
+CI Testing of [sembast](https://github.com/tekartik/sembast.dart) in flutter context
