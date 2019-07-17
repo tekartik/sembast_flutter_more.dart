@@ -14,17 +14,21 @@ Future main() async {
 
   Future copyAll(List<String> files) async {
     for (var file in files) {
+      print(file);
       await copy(file);
     }
   }
 
+  var list = Directory(src)
+      .listSync(recursive: false)
+      .map((entity) => basename(entity.path))
+      .where((path) => FileSystemEntity.isFileSync(join(src, path)))
+
+   //
+  ;
+  print(list);
   await copyAll([
-    'doc_test.dart',
-    'test_common.dart',
-    'field_test.dart',
-    //'io_test_common.dart',
-    'encrypt_codec.dart',
-    'encrypt_codec_test.dart',
+    ...list,
     join('src', 'test_defs.dart')
   ]);
 }

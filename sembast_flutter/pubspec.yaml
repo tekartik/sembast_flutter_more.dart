@@ -5,12 +5,12 @@ author:
 homepage:
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.2.2 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  sembast: '>=1.17.0'
+  sembast: '>=1.19.0-dev.1'
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -20,6 +20,10 @@ dev_dependencies:
   # Dependencies for encryption example
   encrypt: '>=3.1.0'
   crypto: '>=2.0.6'
+
+# dependency_overrides:
+#  sembast:
+#    path: ../../sembast.dart/sembast
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
