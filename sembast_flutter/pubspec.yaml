@@ -14,8 +14,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  test:
   # Tools
   process_run: '>=0.10.1'
+
+  # Dependency for open example
+  path_provider:
 
   # Dependencies for encryption example
   encrypt: '>=3.1.0'
