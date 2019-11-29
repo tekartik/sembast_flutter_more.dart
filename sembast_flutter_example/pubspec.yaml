@@ -37,6 +37,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  process_run:
 
 dependency_overrides:
   tekartik_sembast_flutter:
