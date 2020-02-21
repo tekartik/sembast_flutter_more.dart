@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:sembast_flutter_example/page/list_page.dart';
 import 'package:sembast_flutter_example/provider/note_provider.dart';
-import 'package:sembast_flutter_example/provider/note_provider_flutter.dart';
 import 'package:tekartik_common_utils/common_utils_import.dart';
+import 'package:tekartik_app_platform/app_platform.dart';
+import 'package:tekartik_app_flutter_sembast/setup/sembast_flutter.dart';
 
 DbNoteProvider noteProvider;
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  noteProvider = DbNoteProviderFlutter();
+  platformInit();
+  String packageName = 'com.tekartik.demosembast';
+
+  var databaseFactory = await initDatabaseFactory(packageName: packageName);
+
+  noteProvider = DbNoteProvider(databaseFactory);
   // devPrint('/notepad Starting');
   await noteProvider.ready;
   runApp(MyApp());

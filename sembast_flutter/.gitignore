@@ -38,3 +38,4 @@ build/
 
 # iOS/XCode related
 /ios
+/.flutter-plugins-dependencies
