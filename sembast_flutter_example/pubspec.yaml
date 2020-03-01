@@ -29,6 +29,7 @@ dependencies:
       path: app_sembast
       ref: dart2
       version: '>=0.2.0'
+  path_provider_macos:
   tekartik_common_utils:
     git:
       url: git://github.com/tekartik/common_utils.dart

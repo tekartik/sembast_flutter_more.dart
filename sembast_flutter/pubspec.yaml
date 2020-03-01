@@ -14,6 +14,11 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  sembast_test:
+    git:
+      url: git://github.com/tekartik/sembast.dart
+      path: sembast_test
+      ref: develop
   test:
 
   # Tools
