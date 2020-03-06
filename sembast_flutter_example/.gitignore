@@ -34,5 +34,6 @@
 /android/
 /ios/
 /macos/
+/web/
 
 /.flutter-plugins-dependencies
