@@ -31,7 +31,8 @@ dev_dependencies:
   encrypt: '>=3.1.0'
   crypto: '>=2.0.6'
 
-# dependency_overrides:
+dependency_overrides:
+  pedantic: '>=1.9.0'
 #  sembast:
 #    path: ../../sembast.dart/sembast
 
