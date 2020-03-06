@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:sembast/sembast.dart';
 import 'package:sembast_flutter_example/model/model.dart';
 import 'package:tekartik_common_utils/common_utils_import.dart';
@@ -71,11 +72,15 @@ class DbNoteProvider {
       await notesStore.addAll(db, [
         (DbNote()
               ..title.v = 'Simple title'
-              ..content.v = 'Simple content')
+              ..content.v = 'Simple content'
+              ..date.v = 1)
             .toMap(),
         (DbNote()
               ..title.v = 'Welcome to NotePad'
-              ..content.v = 'Enter your notes\n\nThis is a content.')
+              ..content.v =
+                  'Enter your notes\n\nThis is a content. Just tap anywhere to edit the note.\n'
+                      '${kIsWeb ? '\nYou can open multiple tabs on windows and see that the content is the same in all tabs' : ''}'
+              ..date.v = 2)
             .toMap(),
       ]);
     }
@@ -116,7 +121,7 @@ class DbNoteProvider {
   /// Listen for changes on any note
   Stream<List<DbNote>> onNotes() {
     return notesStore
-        .query(finder: Finder(sortOrders: [SortOrder(Field.key, false)]))
+        .query(finder: Finder(sortOrders: [SortOrder('date', false)]))
         .onSnapshots(db)
         .transform(notesTransformer);
   }

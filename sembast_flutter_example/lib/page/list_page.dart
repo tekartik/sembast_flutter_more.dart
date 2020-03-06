@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sembast_flutter_example/main.dart';
 import 'package:sembast_flutter_example/model/model.dart';
+import 'package:sembast_flutter_example/page/edit_page.dart';
 import 'package:sembast_flutter_example/page/note_page.dart';
 import 'package:tekartik_common_utils/common_utils_import.dart';
 
@@ -45,6 +46,16 @@ class _NoteListPageState extends State<NoteListPage> {
                   },
                 );
               });
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+            return EditNotePage(
+              initialNote: null,
+            );
+          }));
         },
       ),
     );
