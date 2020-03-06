@@ -1,5 +1,1 @@
-# sembast_flutter_example
-
-Simple sembast example:
-* Usage of `StreamBuilder` with `Query.onSnapshots()`
-* Works on the web using `sembast_web`
+# Moved [here](https://github.com/alextekartik/flutter_app_example/tree/master/notepad_sembast)

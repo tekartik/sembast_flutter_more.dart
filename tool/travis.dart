@@ -7,7 +7,6 @@ Future main() async {
 
   for (var dir in [
     'sembast_flutter',
-    'sembast_flutter_example',
   ]) {
     shell = shell.pushd(dir);
     await shell.run('''
