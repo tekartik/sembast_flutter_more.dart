@@ -39,21 +39,25 @@ void main() {
       await record2.add(db, data2);
       await record3.add(db, data3);
       await record4.add(db, data4);
-      var finder = Finder(sortOrders: [SortOrder('timestamp', true)]);
-      var reverseFinder = Finder(sortOrders: [SortOrder('timestamp', false)]);
-      expect((await getSnapshotKeys(store.query(finder: finder), db)),
-          ['test3', 'test4', 'test1', 'test2']);
-      expect((await getSnapshotKeys(store.query(finder: reverseFinder), db)),
-          ['test2', 'test1', 'test4', 'test3']);
 
+      Future _checkContent() async {
+        var finder = Finder(sortOrders: [SortOrder('timestamp', true)]);
+        var reverseFinder = Finder(sortOrders: [SortOrder('timestamp', false)]);
+        expect((await getSnapshotKeys(store.query(finder: finder), db)),
+            ['test3', 'test4', 'test1', 'test2']);
+        expect((await getSnapshotKeys(store.query(finder: reverseFinder), db)),
+            ['test2', 'test1', 'test4', 'test3']);
+
+        expect((await store.findFirst(db, finder: finder)).key, 'test3');
+        expect((await store.findFirst(db, finder: reverseFinder)).key, 'test2');
+      }
+
+      await _checkContent();
       await db.close();
 
       // reopen and check content
       db = await factory.openDatabase('db', codec: sembastFirestoreCodec);
-      expect((await getSnapshotKeys(store.query(finder: finder), db)),
-          ['test3', 'test4', 'test1', 'test2']);
-      expect((await getSnapshotKeys(store.query(finder: reverseFinder), db)),
-          ['test2', 'test1', 'test4', 'test3']);
+      await _checkContent();
 
       await db.close();
     });
