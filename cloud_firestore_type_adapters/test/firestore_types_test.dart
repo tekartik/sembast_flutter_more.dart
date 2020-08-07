@@ -55,7 +55,8 @@ void main() {
       expect(await exportDatabase(db), export);
       await db.close();
 
-      db = await importDatabase(export, factory, 'imported');
+      db = await importDatabase(export, factory, 'imported',
+          codec: sembastFirestoreCodec);
       expect(await record.get(db), data);
       await db.close();
     });

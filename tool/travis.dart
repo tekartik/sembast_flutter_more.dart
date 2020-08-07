@@ -7,6 +7,7 @@ Future main() async {
 
   for (var dir in [
     'sembast_flutter',
+    'cloud_firestore_type_adapters',
   ]) {
     shell = shell.pushd(dir);
     await shell.run('''
