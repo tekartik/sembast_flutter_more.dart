@@ -1,12 +1,11 @@
 name: sembast_cloud_firestore_type_adapters
 description: Sembast Cloud firestore type adapters
 version: 0.1.0
-author:
-homepage:
-deploy_to: none
+author: alex@tekartik.com
+publish_to: none
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.10.0-0 <3.0.0"
 
 dependencies:
   flutter:
@@ -18,6 +17,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   process_run: '>=0.10.1'
+  pedantic:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
