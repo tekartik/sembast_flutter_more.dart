@@ -5,7 +5,7 @@ author:
 homepage:
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.10.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -32,7 +32,7 @@ dev_dependencies:
   crypto: '>=2.0.6'
 
 dependency_overrides:
-  pedantic: '>=1.9.0'
+#  pedantic: '>=1.9.0'
 #  sembast:
 #    path: ../../sembast.dart/sembast
 
