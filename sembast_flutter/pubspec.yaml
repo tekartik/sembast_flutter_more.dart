@@ -5,7 +5,7 @@ author:
 homepage:
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0-0 <3.0.0'
 
 dependencies:
   flutter:
@@ -18,8 +18,9 @@ dev_dependencies:
     git:
       url: git://github.com/tekartik/sembast.dart
       path: sembast_test
-      ref: develop
+      ref: null_safety
   test:
+  dev_test:
 
   # Tools
   process_run: '>=0.10.1'
@@ -32,7 +33,7 @@ dev_dependencies:
   crypto: '>=2.0.6'
 
 dependency_overrides:
-  pedantic: '>=1.9.0'
+#  pedantic: '>=1.9.0'
 #  sembast:
 #    path: ../../sembast.dart/sembast
 

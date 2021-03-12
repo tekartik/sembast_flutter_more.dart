@@ -1,21 +1,20 @@
+import 'package:path/path.dart';
 import 'package:process_run/shell.dart';
 
 Future main() async {
   var shell = Shell();
 
-  await shell.run('flutter doctor');
-
   for (var dir in [
     'sembast_flutter',
     'cloud_firestore_type_adapters',
   ]) {
-    shell = shell.pushd(dir);
+    shell = shell.pushd(join('..', dir));
     await shell.run('''
-    
-    flutter packages get
-    dart tool/travis.dart
-    
-        ''');
+  
+  flutter packages get
+  dart tool/travis.dart
+  
+''');
     shell = shell.popd();
   }
 }

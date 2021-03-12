@@ -1,1 +1,0 @@
-# Moved [here](https://github.com/alextekartik/flutter_app_example/tree/master/notepad_sembast)

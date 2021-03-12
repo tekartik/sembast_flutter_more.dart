@@ -17,6 +17,8 @@ dependencies:
 ## Usage
 
 ```dart
+import 'package:sembast_cloud_firestore_type_adapters/type_adapters.dart';
+
 DatabaseFactory factory;
 
 var db = await factory.openDatabase('db', codec: sembastFirestoreCodec);
