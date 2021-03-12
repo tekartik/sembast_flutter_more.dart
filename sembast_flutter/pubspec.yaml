@@ -18,8 +18,9 @@ dev_dependencies:
     git:
       url: git://github.com/tekartik/sembast.dart
       path: sembast_test
-      ref: develop
+      ref: 2.4.10
   test:
+  dev_test:
 
   # Tools
   process_run: '>=0.10.1'
