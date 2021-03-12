@@ -48,8 +48,9 @@ void main() {
         expect((await getSnapshotKeys(store.query(finder: reverseFinder), db)),
             ['test2', 'test1', 'test4', 'test3']);
 
-        expect((await store.findFirst(db, finder: finder)).key, 'test3');
-        expect((await store.findFirst(db, finder: reverseFinder)).key, 'test2');
+        expect((await store.findFirst(db, finder: finder))!.key, 'test3');
+        expect(
+            (await store.findFirst(db, finder: reverseFinder))!.key, 'test2');
       }
 
       await _checkContent();
