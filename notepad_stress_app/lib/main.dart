@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:tekartik_notepad_stress_app/src/page/list_page.dart';
 import 'package:tekartik_common_utils/common_utils_import.dart';
 import 'package:tekartik_notepad_sembast_app/app.dart';
+import 'package:tekartik_notepad_stress_app/src/page/list_page.dart';
 
 Future main() async {
   var packageName = 'com.tekartik.sembast.notepad_stress';
   await init(packageName: packageName);
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: NoteListPage(),
+      home: const NoteListPage(),
     );
   }
 }

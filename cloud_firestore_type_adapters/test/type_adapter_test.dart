@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
 import 'package:cloud_firestore_platform_interface/cloud_firestore_platform_interface.dart';
-import 'package:sembast_cloud_firestore_type_adapters/type_adapters.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:sembast_cloud_firestore_type_adapters/type_adapters.dart';
 
 void main() {
   group('type_adapters', () {

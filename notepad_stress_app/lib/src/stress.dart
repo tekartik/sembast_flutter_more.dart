@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter_lorem/flutter_lorem.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:sembast/sembast.dart';
@@ -44,6 +46,7 @@ class Task {
 class CreateTask extends Task {
   CreateTask(Stress stress) : super(stress);
 
+  @override
   Future<void> run() async {
     var i = 0;
     while (running) {
@@ -55,7 +58,7 @@ class CreateTask extends Task {
       await noteProvider.saveNote(DbNote()
         //..id.v = _noteId
         ..title.v = '$title $i'
-        ..content.v = '$content'
+        ..content.v = content
         ..date.v = DateTime.now().millisecondsSinceEpoch);
       await sleep(300);
     }
@@ -65,6 +68,7 @@ class CreateTask extends Task {
 class RemoveOldTask extends Task {
   RemoveOldTask(Stress stress) : super(stress);
 
+  @override
   Future<void> run() async {
     while (running) {
       var count = await noteProvider.notesStore.count(await noteProvider.ready);
@@ -102,7 +106,7 @@ class Stress {
 
   String get filterText => 'ater';
 
-  _listener(bool running) async {
+  Future<void> _listener(bool running) async {
     print('Running $running');
     if (running && !_lock.locked) {
       await _lock.synchronized(() async {

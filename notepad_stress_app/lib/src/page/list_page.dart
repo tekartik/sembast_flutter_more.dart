@@ -8,6 +8,8 @@ import 'package:tekartik_notepad_stress_app/app.dart';
 import 'package:tekartik_notepad_stress_app/src/stress.dart';
 
 class NoteListPage extends StatefulWidget {
+  const NoteListPage({Key? key}) : super(key: key);
+
   @override
   _NoteListPageState createState() => _NoteListPageState();
 }
@@ -44,7 +46,7 @@ class _NoteListPageState extends State<NoteListPage> {
                   },
                 ),
               ],
-              title: Text(
+              title: const Text(
                 'NotePad stress',
               )),
           body: StreamBuilder<List<DbNote>>(
@@ -52,7 +54,7 @@ class _NoteListPageState extends State<NoteListPage> {
             builder: (context, snapshot) {
               var notes = snapshot.data;
               if (notes == null) {
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               }
@@ -69,7 +71,7 @@ class _NoteListPageState extends State<NoteListPage> {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
                           return NotePage(
-                            noteId: note.id.v!,
+                            noteId: note.id!,
                           );
                         }));
                       },
@@ -87,18 +89,18 @@ class _NoteListPageState extends State<NoteListPage> {
                         var count = snapshot.data!.length;
                         return Text('count $count');
                       }
-                      return Text('counting...');
+                      return const Text('counting...');
                     })),
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                return EditNotePage(
+                return const EditNotePage(
                   initialNote: null,
                 );
               }));
             },
-            child: Icon(Icons.add),
+            child: const Icon(Icons.add),
           ),
         );
       },
