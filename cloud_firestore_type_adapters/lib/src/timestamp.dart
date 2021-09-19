@@ -1,9 +1,8 @@
 import 'package:cloud_firestore_platform_interface/cloud_firestore_platform_interface.dart'
     show Timestamp;
-import 'package:sembast_cloud_firestore_type_adapters/src/mixin.dart';
-
 // ignore: implementation_imports
 import 'package:sembast/src/type_adapter_impl.dart';
+import 'package:sembast_cloud_firestore_type_adapters/src/mixin.dart';
 
 class _FirestoreTimestampAdapter
     extends SembastTypeAdapter<Timestamp, Map<String, dynamic>>

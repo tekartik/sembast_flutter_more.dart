@@ -1,8 +1,6 @@
 name: tekartik_sembast_flutter
 description: Sembast in a flutter package
 version: 0.1.1
-author:
-homepage:
 
 environment:
   sdk: '>=2.12.0-0 <3.0.0'
@@ -21,7 +19,12 @@ dev_dependencies:
       ref: null_safety
   test:
   dev_test:
-
+  tekartik_app_lints_flutter:
+    git:
+      url: git://github.com/tekartik/app_flutter_utils.dart
+      ref: null_safety
+      path: app_lints
+    version: '>=0.1.0'
   # Tools
   process_run: '>=0.10.1'
 
