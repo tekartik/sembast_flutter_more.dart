@@ -12,7 +12,7 @@ dev_dependencies:
   tekartik_travis_ci_flutter:
     git:
       url: git://github.com/tekartik/travis_ci_flutter.dart
-      ref: dart2
+      ref: null_safety
     version: '>=0.1.0'
   process_run: '>=0.10.3'
   test:
