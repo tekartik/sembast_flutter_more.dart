@@ -8,7 +8,7 @@ pubspec.yaml:
 dependencies:
   sembast_cloud_firestore_type_adapters:
     git:
-      url: git://github.com/tekartik/sembast_flutter_more.dart
+      url: https://github.com/tekartik/sembast_flutter_more.dart
       path: cloud_firestore_type_adapters
       ref: dart2
     version: '>=0.1.0'

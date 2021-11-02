@@ -31,8 +31,8 @@ dependencies:
   cupertino_icons:
   tekartik_app_rx_utils:
     git:
-      url: git://github.com/tekartik/app_flutter_utils.dart
-      ref: null_safety
+      url: https://github.com/tekartik/app_flutter_utils.dart
+      ref: dart2_3
       path: app_rx_utils
     version: '>=0.1.0'
   flutter_lorem:
@@ -41,8 +41,8 @@ dev_dependencies:
     sdk: flutter
   tekartik_lints_flutter:
     git:
-      url: git://github.com/tekartik/common_flutter.dart
-      ref: null_safety
+      url: https://github.com/tekartik/common_flutter.dart
+      ref: dart2_3
       path: packages/lints_flutter
     version: '>=0.1.0'
 # For information on the generic Dart part of this file, see the
