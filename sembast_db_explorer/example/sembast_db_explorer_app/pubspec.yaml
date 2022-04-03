@@ -1,8 +1,8 @@
-name: tekartik_notepad_stress_app
-description: Notepad stress app
+name: sembast_db_explorer_app
+description: Simple navigator example
 
 # The following line prevents the package from being accidentally published to
-# pub.dev using `pub publish`. This is preferred for private packages.
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
@@ -20,34 +20,45 @@ version: 1.0.0+1
 environment:
   sdk: ">=2.12.0 <3.0.0"
 
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
 dependencies:
   flutter:
     sdk: flutter
-  tekartik_notepad_sembast_app:
+  sembast_db_explorer:
     git:
-      url: https://github.com/alextekartik/flutter_app_example
+      url: https://github.com/tekartik/sembast_flutter_more.dart
+      path: sembast_db_explorer
       ref: dart2_3
-      path: notepad_sembast
-
+    version: '>=0.1.0'
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons:
-  tekartik_app_rx_utils:
+  cupertino_icons: ^1.0.2
+  tekartik_app_flutter_sembast:
     git:
       url: https://github.com/tekartik/app_flutter_utils.dart
       ref: dart2_3
-      path: app_rx_utils
+      path: app_sembast
     version: '>=0.1.0'
-  flutter_lorem:
+  tekartik_common_utils:
+    git:
+      url: https://github.com/tekartik/common_utils.dart
+      ref: dart2_3
+    version: '>=0.1.0'
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  tekartik_lints_flutter:
-    git:
-      url: https://github.com/tekartik/common_flutter.dart
-      ref: dart2_3
-      path: packages/lints_flutter
-    version: '>=0.1.0'
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^1.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -91,6 +102,6 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
 
-# dependency_overrides:
-  # tekartik_notepad_sembast_app:
-  #  path: ../../../alextekartik/flutter_app_example/notepad_sembast
+dependency_overrides:
+  sembast_db_explorer:
+    path: ../..
