@@ -1,16 +1,17 @@
-import 'package:flutter/material.dart';
 import 'package:tekartik_app_rx_utils/app_rx_utils.dart';
-import 'package:tekartik_common_utils/common_utils_import.dart';
+
 import 'package:tekartik_notepad_sembast_app/model/model.dart';
 import 'package:tekartik_notepad_sembast_app/page/edit_page.dart';
 import 'package:tekartik_notepad_sembast_app/page/note_page.dart';
 import 'package:tekartik_notepad_stress_app/app.dart';
+import 'package:tekartik_notepad_stress_app/src/import.dart';
 import 'package:tekartik_notepad_stress_app/src/stress.dart';
 
 class NoteListPage extends StatefulWidget {
   const NoteListPage({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _NoteListPageState createState() => _NoteListPageState();
 }
 
