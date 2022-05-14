@@ -69,7 +69,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       showExplorer();
     });
     super.initState();
