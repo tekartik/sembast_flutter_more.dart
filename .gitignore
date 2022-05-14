@@ -5,3 +5,6 @@
 
 # Local
 .local
+
+# Dart
+.dart_tool

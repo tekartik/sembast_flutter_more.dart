@@ -39,6 +39,8 @@ dependencies:
       path: app_rx_utils
     version: '>=0.1.0'
   flutter_lorem:
+  rxdart:
+  sembast:
 dev_dependencies:
   flutter_test:
     sdk: flutter

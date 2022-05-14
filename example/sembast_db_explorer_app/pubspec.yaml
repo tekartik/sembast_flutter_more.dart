@@ -104,4 +104,4 @@ flutter:
 
 dependency_overrides:
   sembast_db_explorer:
-    path: ../..
+    path: ../../sembast_db_explorer
