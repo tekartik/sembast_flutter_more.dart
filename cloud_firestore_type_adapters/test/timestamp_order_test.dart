@@ -40,7 +40,7 @@ void main() {
       await record3.add(db, data3);
       await record4.add(db, data4);
 
-      Future _checkContent() async {
+      Future checkContent() async {
         var finder = Finder(sortOrders: [SortOrder('timestamp', true)]);
         var reverseFinder = Finder(sortOrders: [SortOrder('timestamp', false)]);
         expect((await getSnapshotKeys(store.query(finder: finder), db)),
@@ -53,12 +53,12 @@ void main() {
             (await store.findFirst(db, finder: reverseFinder))!.key, 'test2');
       }
 
-      await _checkContent();
+      await checkContent();
       await db.close();
 
       // reopen and check content
       db = await factory.openDatabase('db', codec: sembastFirestoreCodec);
-      await _checkContent();
+      await checkContent();
 
       await db.close();
     });
