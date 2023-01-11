@@ -62,7 +62,7 @@ class _RecordHomeScreenState extends State<RecordHomeScreen> {
 Future<void> goToRecordHomeScreen(
     BuildContext context, StoreData data, Object key) async {
   await Navigator.of(context)
-      .push(MaterialPageRoute(builder: (BuildContext context) {
+      .push<void>(MaterialPageRoute(builder: (BuildContext context) {
     return RecordHomeScreen(data: RecordData(data, data.store.record(key)));
   }));
 }

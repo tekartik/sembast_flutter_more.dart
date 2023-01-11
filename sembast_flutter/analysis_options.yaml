@@ -1,2 +1,7 @@
 # tekartik flutter recommended lints (extension over google lints and pedantic)
 include: package:tekartik_app_lints_flutter/recommended.yaml
+
+analyzer:
+  language:
+    strict-casts: true
+    strict-inference: true
