@@ -70,7 +70,7 @@ class _NoteListPageState extends State<NoteListPage> {
                           : null,
                       onTap: () {
                         Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (context) {
+                            .push<void>(MaterialPageRoute(builder: (context) {
                           return NotePage(
                             noteId: note.id!,
                           );
@@ -95,7 +95,8 @@ class _NoteListPageState extends State<NoteListPage> {
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+              Navigator.of(context)
+                  .push<void>(MaterialPageRoute(builder: (context) {
                 return const EditNotePage(
                   initialNote: null,
                 );

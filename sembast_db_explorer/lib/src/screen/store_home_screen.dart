@@ -52,7 +52,7 @@ class _StoreHomeScreenState extends State<StoreHomeScreen> {
                   title: Text(record.key.toString()),
                   onTap: () async {
                     await goToRecordHomeScreen(
-                        context, widget.data, record.key);
+                        context, widget.data, record.key as Object);
                   },
                 );
               },
@@ -67,7 +67,7 @@ class _StoreHomeScreenState extends State<StoreHomeScreen> {
 Future<void> goToStoreHomeScreen(
     BuildContext context, DbData data, String store) async {
   await Navigator.of(context)
-      .push(MaterialPageRoute(builder: (BuildContext context) {
+      .push<void>(MaterialPageRoute(builder: (BuildContext context) {
     return StoreHomeScreen(data: StoreData(data, StoreRef(store)));
   }));
 }
