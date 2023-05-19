@@ -1,12 +1,11 @@
 name: sembast_db_explorer
 description: Sembast database explorer
-version: 0.0.1
+version: 0.1.0
 homepage:
 publish_to: none
 
 environment:
-  sdk: '>=2.18.0 <3.0.0'
-  flutter: ">=1.17.0"
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:
