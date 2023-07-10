@@ -9,7 +9,7 @@ class DbHomeScreen extends StatefulWidget {
   const DbHomeScreen({Key? key, required this.data}) : super(key: key);
 
   @override
-  _DbHomeScreenState createState() => _DbHomeScreenState();
+  State<DbHomeScreen> createState() => _DbHomeScreenState();
 }
 
 class _DbHomeScreenState extends State<DbHomeScreen> {

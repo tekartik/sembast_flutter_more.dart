@@ -10,7 +10,7 @@ class StoreHomeScreen extends StatefulWidget {
   const StoreHomeScreen({Key? key, required this.data}) : super(key: key);
 
   @override
-  _StoreHomeScreenState createState() => _StoreHomeScreenState();
+  State<StoreHomeScreen> createState() => _StoreHomeScreenState();
 }
 
 class _StoreHomeScreenState extends State<StoreHomeScreen> {
