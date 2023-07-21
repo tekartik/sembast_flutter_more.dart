@@ -2,8 +2,7 @@ import 'dart:convert';
 
 import 'package:cloud_firestore_platform_interface/cloud_firestore_platform_interface.dart'
     show Blob;
-// ignore: implementation_imports
-import 'package:sembast/src/type_adapter_impl.dart';
+import 'package:sembast/utils/type_adapter.dart';
 import 'package:sembast_cloud_firestore_type_adapters/src/mixin.dart';
 
 class _FirestoreBlobAdapter extends SembastTypeAdapter<Blob, String>
