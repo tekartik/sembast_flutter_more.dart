@@ -1,6 +1,5 @@
 import 'dart:convert';
-// ignore: implementation_imports
-import 'package:sembast/src/type_adapter_impl.dart';
+import 'package:sembast/utils/type_adapter.dart';
 
 /// Common type adapter definition.
 class TypeAdapterConverter<S, T> extends Converter<S, T> {

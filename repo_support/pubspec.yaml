@@ -4,7 +4,7 @@ version: 0.2.0
 publish_to: none
 
 environment:
-  sdk: '>=2.18.0 <3.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 dev_dependencies:
   path:
@@ -12,11 +12,10 @@ dev_dependencies:
   process_run: '>=0.10.3'
   test:
   dev_test:
-  pedantic:
   tekartik_lints:
     git:
       url: https://github.com/tekartik/common.dart
-      ref: dart2_3
+      ref: dart3a
       path: packages/lints
     version: '>=0.1.0'
 

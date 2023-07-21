@@ -9,7 +9,7 @@ class RecordHomeScreen extends StatefulWidget {
   const RecordHomeScreen({Key? key, required this.data}) : super(key: key);
 
   @override
-  _RecordHomeScreenState createState() => _RecordHomeScreenState();
+  State<RecordHomeScreen> createState() => _RecordHomeScreenState();
 }
 
 class _RecordHomeScreenState extends State<RecordHomeScreen> {

@@ -3,7 +3,7 @@ library sembast_cloud_firestore_type_adapters;
 import 'dart:convert';
 
 import 'package:sembast/sembast.dart';
-import 'package:sembast/src/json_encodable_codec.dart'; // ignore: implementation_imports
+import 'package:sembast/utils/type_adapter.dart';
 import 'package:sembast_cloud_firestore_type_adapters/src/blob.dart';
 import 'package:sembast_cloud_firestore_type_adapters/src/geo_point.dart';
 import 'package:sembast_cloud_firestore_type_adapters/src/timestamp.dart';
