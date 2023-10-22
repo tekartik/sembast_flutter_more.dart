@@ -8,7 +8,7 @@ import 'package:tekartik_notepad_stress_app/src/import.dart';
 import 'package:tekartik_notepad_stress_app/src/stress.dart';
 
 class NoteListPage extends StatefulWidget {
-  const NoteListPage({Key? key}) : super(key: key);
+  const NoteListPage({super.key});
 
   @override
   // ignore: library_private_types_in_public_api

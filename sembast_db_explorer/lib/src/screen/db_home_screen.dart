@@ -6,7 +6,7 @@ import 'package:sembast_db_explorer/src/text/text.dart';
 
 class DbHomeScreen extends StatefulWidget {
   final DbData data;
-  const DbHomeScreen({Key? key, required this.data}) : super(key: key);
+  const DbHomeScreen({super.key, required this.data});
 
   @override
   State<DbHomeScreen> createState() => _DbHomeScreenState();

@@ -7,7 +7,7 @@ import 'package:sembast_db_explorer/src/screen/record_home_screen.dart';
 
 class StoreHomeScreen extends StatefulWidget {
   final StoreData data;
-  const StoreHomeScreen({Key? key, required this.data}) : super(key: key);
+  const StoreHomeScreen({super.key, required this.data});
 
   @override
   State<StoreHomeScreen> createState() => _StoreHomeScreenState();

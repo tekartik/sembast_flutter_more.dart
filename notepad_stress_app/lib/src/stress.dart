@@ -44,7 +44,7 @@ class Task {
 }
 
 class CreateTask extends Task {
-  CreateTask(Stress stress) : super(stress);
+  CreateTask(super.stress);
 
   @override
   Future<void> run() async {
@@ -66,7 +66,7 @@ class CreateTask extends Task {
 }
 
 class RemoveOldTask extends Task {
-  RemoveOldTask(Stress stress) : super(stress);
+  RemoveOldTask(super.stress);
 
   @override
   Future<void> run() async {

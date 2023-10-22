@@ -6,7 +6,7 @@ import 'package:tekartik_common_utils/common_utils_import.dart';
 
 class RecordHomeScreen extends StatefulWidget {
   final RecordData data;
-  const RecordHomeScreen({Key? key, required this.data}) : super(key: key);
+  const RecordHomeScreen({super.key, required this.data});
 
   @override
   State<RecordHomeScreen> createState() => _RecordHomeScreenState();
