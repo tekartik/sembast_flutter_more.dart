@@ -5,7 +5,10 @@ import 'package:tekartik_notepad_stress_app/src/page/list_page.dart';
 
 Future main() async {
   var packageName = 'com.tekartik.sembast.notepad_stress';
+  var sw = Stopwatch()..start();
   await init(packageName: packageName);
+  // ignore: avoid_print
+  print('init done in ${sw.elapsed}');
   runApp(const MyApp());
 }
 
