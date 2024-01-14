@@ -52,6 +52,7 @@ app.*.map.json
 /web/
 /windows/
 /linux/
+.metadata
 
 # Dart
 pubspec.lock
