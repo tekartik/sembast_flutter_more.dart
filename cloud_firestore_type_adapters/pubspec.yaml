@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   sembast: '>=3.5.0'
-  cloud_firestore_platform_interface: '>=1.1.0'
+  cloud_firestore_platform_interface: ^6.1.7
 
 dev_dependencies:
   dev_test:
