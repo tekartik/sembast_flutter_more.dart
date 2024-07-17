@@ -14,7 +14,7 @@ dependencies:
   cloud_firestore_platform_interface: '>=1.1.0'
 
 dev_dependencies:
-  dev_test:
+  dev_build:
   flutter_test:
     sdk: flutter
   process_run: '>=0.10.1'
