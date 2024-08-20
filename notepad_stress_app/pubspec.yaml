@@ -40,7 +40,7 @@ dependencies:
     version: '>=0.1.0'
   flutter_lorem:
   rxdart: '>=0.27.7'
-  sembast:
+  sembast: '>=3.7.3+2'
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -94,5 +94,7 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 
 # dependency_overrides:
+  # sembast:
+  #  path: ../../../tekartik/sembast.dart/sembast
   # tekartik_notepad_sembast_app:
   #  path: ../../../alextekartik/flutter_app_example/notepad_sembast

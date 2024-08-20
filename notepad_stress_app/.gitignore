@@ -32,7 +32,6 @@
 /build/
 
 # Web related
-lib/generated_plugin_registrant.dart
 
 # Symbolication related
 app.*.symbols
@@ -56,3 +55,4 @@ app.*.map.json
 
 # Dart
 pubspec.lock
+/pubspec_overrides.yaml
