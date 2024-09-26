@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  sembast: '>=3.5.0'
+  sembast: '>=3.7.4+2'
   cloud_firestore_platform_interface: '>=1.1.0'
 
 dev_dependencies:
