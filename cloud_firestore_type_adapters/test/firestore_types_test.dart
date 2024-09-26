@@ -2,7 +2,6 @@ import 'dart:typed_data';
 
 import 'package:cloud_firestore_platform_interface/cloud_firestore_platform_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:sembast/sembast.dart';
 import 'package:sembast/sembast_memory.dart';
 import 'package:sembast/utils/sembast_import_export.dart';
 import 'package:sembast_cloud_firestore_type_adapters/type_adapters.dart';
