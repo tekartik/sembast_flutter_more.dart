@@ -1,3 +1,3 @@
-library tekartik_sembast_flutter;
+library;
 
 export 'package:sembast/sembast_io.dart';

@@ -1,4 +1,4 @@
-library sembast_cloud_firestore_type_adapters;
+library;
 
 import 'dart:convert';
 

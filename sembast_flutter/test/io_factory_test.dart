@@ -1,5 +1,5 @@
 @TestOn('vm')
-library sembast_flutter.test.io_factory_test;
+library;
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sembast/sembast.dart';
