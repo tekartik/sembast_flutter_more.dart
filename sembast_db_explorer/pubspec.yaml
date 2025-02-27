@@ -5,12 +5,12 @@ homepage:
 publish_to: none
 
 environment:
-  sdk: ^3.5.0
+  sdk: ^3.6.0
 
 dependencies:
   flutter:
     sdk: flutter
-  sembast:
+  sembast: ">=3.7.4+3"
   tekartik_common_utils:
     git:
       url: https://github.com/tekartik/common_utils.dart
@@ -20,7 +20,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: '>=3.0.0'
+  flutter_lints: ">=5.0.0"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

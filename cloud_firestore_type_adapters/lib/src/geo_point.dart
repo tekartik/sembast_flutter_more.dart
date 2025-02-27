@@ -8,15 +8,19 @@ class _FirestoreGeoPointAdapter
     with TypeAdapterCodecMixin<GeoPoint, Map<String, dynamic>> {
   _FirestoreGeoPointAdapter() {
     // Encode to string
-    encoder = TypeAdapterConverter<GeoPoint, Map<String, dynamic>>((geoPoint) =>
-        <String, dynamic>{
-          'latitude': geoPoint.latitude,
-          'longitude': geoPoint.longitude
-        });
+    encoder = TypeAdapterConverter<GeoPoint, Map<String, dynamic>>(
+      (geoPoint) => <String, dynamic>{
+        'latitude': geoPoint.latitude,
+        'longitude': geoPoint.longitude,
+      },
+    );
     // Decode from string
-    decoder = TypeAdapterConverter<Map<String, dynamic>, GeoPoint>((map) =>
-        GeoPoint((map['latitude'] as num).toDouble(),
-            (map['longitude'] as num).toDouble()));
+    decoder = TypeAdapterConverter<Map<String, dynamic>, GeoPoint>(
+      (map) => GeoPoint(
+        (map['latitude'] as num).toDouble(),
+        (map['longitude'] as num).toDouble(),
+      ),
+    );
   }
 
   @override

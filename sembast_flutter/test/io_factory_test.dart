@@ -16,11 +16,9 @@ void main() {
     var store = intMapStoreFactory.store();
     var db = await databaseContextIo.open('.dart_tool/test.db');
     await store.drop(db);
-    await store.add(
-      db,
-      {'test': 'value'},
-    );
-    expect(
-        (await store.query().getSnapshots(db)).first.value, {'test': 'value'});
+    await store.add(db, {'test': 'value'});
+    expect((await store.query().getSnapshots(db)).first.value, {
+      'test': 'value',
+    });
   });
 }

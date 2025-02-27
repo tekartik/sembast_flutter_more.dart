@@ -55,11 +55,13 @@ class CreateTask extends Task {
       var title = lorem(paragraphs: 1, words: 4);
       var content = lorem(paragraphs: 2, words: 60);
 
-      await noteProvider.saveNote(DbNote()
-        //..id.v = _noteId
-        ..title.v = '$title $i'
-        ..content.v = content
-        ..date.v = DateTime.now().millisecondsSinceEpoch);
+      await noteProvider.saveNote(
+        DbNote()
+          //..id.v = _noteId
+          ..title.v = '$title $i'
+          ..content.v = content
+          ..date.v = DateTime.now().millisecondsSinceEpoch,
+      );
       //await sleep(300);
     }
   }
@@ -76,10 +78,12 @@ class RemoveOldTask extends Task {
       var maxCount = 10000;
       if (count > maxCount) {
         var result = await noteProvider.notesStore.delete(
-            await noteProvider.ready,
-            finder: Finder(
-                sortOrders: [SortOrder('date', true)],
-                limit: count - maxCount));
+          await noteProvider.ready,
+          finder: Finder(
+            sortOrders: [SortOrder('date', true)],
+            limit: count - maxCount,
+          ),
+        );
         print('deleted: $result');
       }
       await sleep(5000);
@@ -96,7 +100,8 @@ class StressState {
 
 class Stress {
   final subject = BehaviorSubject<StressState>.seeded(
-      StressState(running: false, filtering: false));
+    StressState(running: false, filtering: false),
+  );
 
   bool get isRunning => subject.value.running;
 
@@ -148,11 +153,15 @@ class Stress {
     } else {
       return noteProvider.notesStore
           .query(
-              finder: Finder(
-                  sortOrders: [SortOrder('date', false)],
-                  filter: Filter.custom((record) =>
-                      _contains(snapshotToNote(record).content.v, filterText) ||
-                      _contains(snapshotToNote(record).content.v, filterText))))
+            finder: Finder(
+              sortOrders: [SortOrder('date', false)],
+              filter: Filter.custom(
+                (record) =>
+                    _contains(snapshotToNote(record).content.v, filterText) ||
+                    _contains(snapshotToNote(record).content.v, filterText),
+              ),
+            ),
+          )
           .onSnapshots(noteProvider.db!)
           .transform(noteProvider.notesTransformer);
     }

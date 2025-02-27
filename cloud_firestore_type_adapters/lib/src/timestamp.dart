@@ -9,13 +9,15 @@ class _FirestoreTimestampAdapter
   _FirestoreTimestampAdapter() {
     // Encode to map
     encoder = TypeAdapterConverter<Timestamp, Map<String, dynamic>>(
-        (timestamp) => <String, dynamic>{
-              'seconds': timestamp.seconds,
-              'nanoseconds': timestamp.nanoseconds
-            });
+      (timestamp) => <String, dynamic>{
+        'seconds': timestamp.seconds,
+        'nanoseconds': timestamp.nanoseconds,
+      },
+    );
     // Decode from map
     decoder = TypeAdapterConverter<Map<String, dynamic>, Timestamp>(
-        (map) => Timestamp(map['seconds'] as int, map['nanoseconds'] as int));
+      (map) => Timestamp(map['seconds'] as int, map['nanoseconds'] as int),
+    );
   }
 
   @override

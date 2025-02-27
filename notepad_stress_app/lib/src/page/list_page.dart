@@ -27,80 +27,84 @@ class _NoteListPageState extends State<NoteListPage> {
         var filtering = snapshot.data?.filtering ?? false;
         return Scaffold(
           appBar: AppBar(
-              actions: <Widget>[
-                IconButton(
-                  icon: Icon(running ? Icons.pause : Icons.play_arrow),
-                  tooltip: 'Running',
-                  onPressed: () {
-                    stress.toggle();
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text('Running: ${stress.isRunning}')));
-                  },
-                ),
-                IconButton(
-                  icon: Icon(filtering ? Icons.pause : Icons.play_arrow),
-                  tooltip: 'Filtering',
-                  onPressed: () {
-                    stress.toggleFiltering();
-                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text('Filtering: ${stress.isFiltering}')));
-                  },
-                ),
-              ],
-              title: const Text(
-                'NotePad stress',
-              )),
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(running ? Icons.pause : Icons.play_arrow),
+                tooltip: 'Running',
+                onPressed: () {
+                  stress.toggle();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Running: ${stress.isRunning}')),
+                  );
+                },
+              ),
+              IconButton(
+                icon: Icon(filtering ? Icons.pause : Icons.play_arrow),
+                tooltip: 'Filtering',
+                onPressed: () {
+                  stress.toggleFiltering();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Filtering: ${stress.isFiltering}')),
+                  );
+                },
+              ),
+            ],
+            title: const Text('NotePad stress'),
+          ),
           body: StreamBuilder<List<DbNote>>(
             stream: stress.onNotes(),
             builder: (context, snapshot) {
               var notes = snapshot.data;
               if (notes == null) {
-                return const Center(
-                  child: CircularProgressIndicator(),
-                );
+                return const Center(child: CircularProgressIndicator());
               }
               return ListView.builder(
-                  itemCount: notes.length,
-                  itemBuilder: (context, index) {
-                    var note = notes[index];
-                    return ListTile(
-                      title: Text(note.title.v ?? ''),
-                      subtitle: note.content.v?.isNotEmpty ?? false
-                          ? Text(LineSplitter.split(note.content.v!).first)
-                          : null,
-                      onTap: () {
-                        Navigator.of(context)
-                            .push<void>(MaterialPageRoute(builder: (context) {
-                          return NotePage(
-                            noteId: note.id!,
-                          );
-                        }));
-                      },
-                    );
-                  });
+                itemCount: notes.length,
+                itemBuilder: (context, index) {
+                  var note = notes[index];
+                  return ListTile(
+                    title: Text(note.title.v ?? ''),
+                    subtitle: note.content.v?.isNotEmpty ?? false
+                        ? Text(LineSplitter.split(note.content.v!).first)
+                        : null,
+                    onTap: () {
+                      Navigator.of(context).push<void>(
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return NotePage(noteId: note.id!);
+                          },
+                        ),
+                      );
+                    },
+                  );
+                },
+              );
             },
           ),
           bottomNavigationBar: BottomAppBar(
             child: ListTile(
-                dense: true,
-                title: StreamBuilder<List<DbNote>>(
-                    stream: stress.onNotes(),
-                    builder: (context, snapshot) {
-                      if (snapshot.hasData) {
-                        var count = snapshot.data!.length;
-                        return Text('count $count');
-                      }
-                      return const Text('counting...');
-                    })),
+              dense: true,
+              title: StreamBuilder<List<DbNote>>(
+                stream: stress.onNotes(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    var count = snapshot.data!.length;
+                    return Text('count $count');
+                  }
+                  return const Text('counting...');
+                },
+              ),
+            ),
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
-              Navigator.of(context)
-                  .push<void>(MaterialPageRoute(builder: (context) {
-                return const EditNotePage(
-                  initialNote: null,
-                );
-              }));
+              Navigator.of(context).push<void>(
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const EditNotePage(initialNote: null);
+                  },
+                ),
+              );
             },
             child: const Icon(Icons.add),
           ),

@@ -8,4 +8,5 @@
 
 # Dart
 .dart_tool
-
+pubspec.lock
+pubspec_overrides.yaml

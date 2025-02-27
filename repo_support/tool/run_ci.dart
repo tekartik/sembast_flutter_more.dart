@@ -7,7 +7,7 @@ Future main() async {
     'cloud_firestore_type_adapters',
     'notepad_stress_app',
     'sembast_db_explorer',
-    join('sembast_db_explorer', 'sembast_db_explorer_app')
+    join('sembast_db_explorer', 'sembast_db_explorer_app'),
   ]) {
     await packageRunCi(join('..', dir));
   }

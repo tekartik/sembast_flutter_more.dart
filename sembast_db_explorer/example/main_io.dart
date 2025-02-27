@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sembast_db_explorer/sembast_db_explorer.dart';
-import 'package:tekartik_app_flutter_sembast/sembast.dart';
+import 'package:sembast/sembast_io.dart' as io;
 
-var factory = getDatabaseFactory();
+var factory = io.databaseFactoryIo;
 
 Future<void> main() async {
   runApp(const MyApp());
@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
         version: 2,
         onVersionChanged: (db, oldVersion, newVersion) async {
           if (oldVersion < 2) {
-            var testStore = intMapStoreFactory.store('test');
+            var testStore = io.intMapStoreFactory.store('test');
             await testStore.add(db, {'test': 1});
           }
         },

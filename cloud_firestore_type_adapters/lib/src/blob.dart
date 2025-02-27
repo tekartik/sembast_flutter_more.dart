@@ -9,11 +9,13 @@ class _FirestoreBlobAdapter extends SembastTypeAdapter<Blob, String>
     with TypeAdapterCodecMixin<Blob, String> {
   _FirestoreBlobAdapter() {
     // Encode to string
-    encoder =
-        TypeAdapterConverter<Blob, String>((blob) => base64Encode(blob.bytes));
+    encoder = TypeAdapterConverter<Blob, String>(
+      (blob) => base64Encode(blob.bytes),
+    );
     // Decode from string
-    decoder =
-        TypeAdapterConverter<String, Blob>((text) => Blob(base64Decode(text)));
+    decoder = TypeAdapterConverter<String, Blob>(
+      (text) => Blob(base64Decode(text)),
+    );
   }
 
   @override
