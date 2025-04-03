@@ -1,0 +1,36 @@
+name: sembast_dev_menu
+description: Sembast dev menu
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.7.2
+
+# Add regular dependencies here.
+dependencies:
+  dev_test: ">=1.0.0+4"
+  path: ">=1.9.0"
+  sembast: ">=3.7.4+3"
+  sembast_web: ">=2.1.2-1"
+  tekartik_app_cv_sembast:
+    git:
+      url: https://github.com/tekartik/app_common_utils.dart
+      ref: dart3a
+      path: app_cv_sembast
+  tekartik_app_dev_menu:
+    git:
+      url: https://github.com/tekartik/app_common_utils.dart
+      ref: dart3a
+      path: app_dev_menu
+  tekartik_app_sembast:
+    git:
+      url: https://github.com/tekartik/app_common_utils.dart
+      ref: dart3a
+      path: app_sembast
+  # path: ^1.8.0
+
+dev_dependencies:
+  lints: ">=5.0.0"
+  test: ">=1.24.0"
+  build_web_compilers: ">=4.0.11"
+  build_runner: ">=2.4.13"
