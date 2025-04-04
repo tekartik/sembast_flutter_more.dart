@@ -28,6 +28,9 @@ class DbTestRecord extends DbStringRecordBase {
 }
 
 var store = cvStringStoreFactory.store<DbTestRecord>('test');
+var singleton = cvStringStoreFactory
+    .store<DbTestRecord>('test_singleton')
+    .record('test');
 void cvSembastDatabaseDevMenu(SembastDatabaseDevMenuContext context) {
   cvAddConstructors([DbTestRecord.new]);
   late Database db;
@@ -35,48 +38,83 @@ void cvSembastDatabaseDevMenu(SembastDatabaseDevMenuContext context) {
     db = context.database;
   });
   leave(() async {});
-  item('add', () async {
-    var record = await store.add(
-      db,
-      DbTestRecord()..timestamp.v = Timestamp.now(),
-    );
-    write(record.dbToJsonPretty());
-  });
-  item('clear all', () async {
-    await store.delete(db);
-  });
-  item('list', () async {
-    var records = await store.find(db);
-
-    for (var record in records) {
+  menu('collection', () {
+    item('add', () async {
+      var record = await store.add(
+        db,
+        DbTestRecord()..timestamp.v = Timestamp.now(),
+      );
       write(record.dbToJsonPretty());
-    }
-    if (records.isEmpty) {
-      write('no records');
-    } else {
-      write('${records.length} records');
-    }
+    });
+    item('clear all', () async {
+      await store.delete(db);
+    });
+    item('list', () async {
+      var records = await store.find(db);
+
+      for (var record in records) {
+        write(record.dbToJsonPretty());
+      }
+      if (records.isEmpty) {
+        write('no records');
+      } else {
+        write('${records.length} records');
+      }
+    });
+    StreamSubscription? subscription;
+    item('register on latest', () async {
+      subscription = store
+          .query(
+            finder: Finder(
+              sortOrders: [SortOrder(DbTestRecord().timestamp.key, false)],
+            ),
+          )
+          .onRecord(db)
+          .listen((record) {
+            var diff = Timestamp.now().difference(
+              record?.timestamp.v ?? Timestamp.zero,
+            );
+            write(
+              'latest record: ${Timestamp.now().toIso8601String()} $diff ${record?.dbToJsonPretty()}',
+            );
+          });
+    });
+    item('cancel on latest', () async {
+      await subscription?.cancel();
+      subscription = null;
+    });
   });
-  StreamSubscription? subscription;
-  item('register on latest', () async {
-    subscription = store
-        .query(
-          finder: Finder(
-            sortOrders: [SortOrder(DbTestRecord().timestamp.key, false)],
-          ),
-        )
-        .onRecord(db)
-        .listen((record) {
-          var diff = Timestamp.now().difference(
-            record?.timestamp.v ?? Timestamp.zero,
-          );
-          write(
-            'latest record: ${Timestamp.now().toIso8601String()} $diff ${record?.dbToJsonPretty()}',
-          );
-        });
-  });
-  item('cancel on latest', () async {
-    await subscription?.cancel();
-    subscription = null;
+  menu('record', () {
+    item('set', () async {
+      var record = await singleton.put(
+        db,
+        DbTestRecord()..timestamp.v = Timestamp.now(),
+      );
+      write(record.dbToJsonPretty());
+    });
+    item('delete', () async {
+      await singleton.delete(db);
+    });
+    item('get', () async {
+      var record = await singleton.get(db);
+
+      write(record?.dbToJsonPretty());
+    });
+    StreamSubscription? subscription;
+    item('register singleton', () async {
+      subscription = singleton.onRecord(db).listen((record) {
+        var diff =
+            Timestamp.now()
+                .difference(record?.timestamp.v ?? Timestamp.zero)
+                .inMilliseconds;
+        write(
+          'latest record: diff $diff ms, ${Timestamp.now().toIso8601String()}, ${record?.dbToJsonPretty()}',
+        );
+      });
+    });
+    item('cancel registration', () async {
+      await subscription?.cancel();
+      subscription = null;
+    });
   });
 }
