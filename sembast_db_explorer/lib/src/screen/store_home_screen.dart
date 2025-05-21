@@ -32,42 +32,48 @@ class _StoreHomeScreenState extends State<StoreHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(store.name),
-      ),
+      appBar: AppBar(title: Text(store.name)),
       body: StreamBuilder<List<RecordSnapshot>>(
-          stream: _recordsStream,
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) {
-              return const Center(
-                child: CircularProgressIndicator(),
+        stream: _recordsStream,
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          var list = snapshot.data!;
+          var count = list.length;
+          return ListView.builder(
+            itemBuilder: (_, index) {
+              var record = list[index];
+              return ListTile(
+                title: Text(record.key.toString()),
+                onTap: () async {
+                  await goToRecordHomeScreen(
+                    context,
+                    widget.data,
+                    record.key as Object,
+                  );
+                },
               );
-            }
-            var list = snapshot.data!;
-            var count = list.length;
-            return ListView.builder(
-              itemBuilder: (_, index) {
-                var record = list[index];
-                return ListTile(
-                  title: Text(record.key.toString()),
-                  onTap: () async {
-                    await goToRecordHomeScreen(
-                        context, widget.data, record.key as Object);
-                  },
-                );
-              },
-              itemCount: count,
-            );
-          }),
+            },
+            itemCount: count,
+          );
+        },
+      ),
     );
   }
 }
 
 /// Navigate through stores and record.
 Future<void> goToStoreHomeScreen(
-    BuildContext context, DbData data, String store) async {
-  await Navigator.of(context)
-      .push<void>(MaterialPageRoute(builder: (BuildContext context) {
-    return StoreHomeScreen(data: StoreData(data, StoreRef(store)));
-  }));
+  BuildContext context,
+  DbData data,
+  String store,
+) async {
+  await Navigator.of(context).push<void>(
+    MaterialPageRoute(
+      builder: (BuildContext context) {
+        return StoreHomeScreen(data: StoreData(data, StoreRef(store)));
+      },
+    ),
+  );
 }

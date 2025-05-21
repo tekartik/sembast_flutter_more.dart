@@ -31,38 +31,41 @@ class _RecordHomeScreenState extends State<RecordHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(record.key.toString()),
-      ),
+      appBar: AppBar(title: Text(record.key.toString())),
       body: StreamBuilder<RecordSnapshot?>(
-          stream: _recordStream,
-          builder: (context, snapshot) {
-            if (!snapshot.hasData) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-            var recordSnapshot = snapshot.data;
-            if (recordSnapshot == null) {
-              return Center(child: Text(textNotFound));
-            }
-            String? result;
-            try {
-              result = jsonPretty(recordSnapshot.value);
-            } catch (_) {
-              result = recordSnapshot.toString();
-            }
-            return Text(result ?? '<no_data>');
-          }),
+        stream: _recordStream,
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return const Center(child: CircularProgressIndicator());
+          }
+          var recordSnapshot = snapshot.data;
+          if (recordSnapshot == null) {
+            return Center(child: Text(textNotFound));
+          }
+          String? result;
+          try {
+            result = jsonPretty(recordSnapshot.value);
+          } catch (_) {
+            result = recordSnapshot.toString();
+          }
+          return Text(result ?? '<no_data>');
+        },
+      ),
     );
   }
 }
 
 /// Navigate through stores and record.
 Future<void> goToRecordHomeScreen(
-    BuildContext context, StoreData data, Object key) async {
-  await Navigator.of(context)
-      .push<void>(MaterialPageRoute(builder: (BuildContext context) {
-    return RecordHomeScreen(data: RecordData(data, data.store.record(key)));
-  }));
+  BuildContext context,
+  StoreData data,
+  Object key,
+) async {
+  await Navigator.of(context).push<void>(
+    MaterialPageRoute(
+      builder: (BuildContext context) {
+        return RecordHomeScreen(data: RecordData(data, data.store.record(key)));
+      },
+    ),
+  );
 }

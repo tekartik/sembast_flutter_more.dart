@@ -28,9 +28,7 @@ class _DbHomeScreenState extends State<DbHomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(textDbHomeScreenTitle),
-      ),
+      appBar: AppBar(title: Text(textDbHomeScreenTitle)),
       body: ListView.builder(
         itemBuilder: (_, index) {
           var store = _stores[index];
