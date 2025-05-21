@@ -9,9 +9,7 @@ Future<List<String>> getSnapshotKeys(
 ) async {
   return (await queryRef.getSnapshots(
     client,
-  ))
-      .map((e) => e.key)
-      .toList(growable: false);
+  )).map((e) => e.key).toList(growable: false);
 }
 
 void main() {

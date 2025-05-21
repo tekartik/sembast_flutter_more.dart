@@ -3,12 +3,12 @@ description: Sembast in a flutter package
 version: 0.1.1
 
 environment:
-  sdk: ^3.5.0
+  sdk: ^3.7.0
 
 dependencies:
   flutter:
     sdk: flutter
-  sembast: '>=2.4.3-dev.1'
+  sembast: ">=3.7.4+3"
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -17,8 +17,8 @@ dev_dependencies:
       url: https://github.com/tekartik/sembast.dart
       path: sembast_test
       ref: dart3a
-  test:
-  dev_build:
+  test: ">=1.24.0"
+  dev_build: ">=1.1.2"
   tekartik_app_lints_flutter:
     git:
       url: https://github.com/tekartik/app_flutter_utils.dart
@@ -26,7 +26,7 @@ dev_dependencies:
       path: app_lints
     version: '>=0.1.0'
   # Tools
-  process_run: '>=0.10.1'
+  process_run: ">=1.2.1+1"
 
   # Dependency for open example
   path_provider:

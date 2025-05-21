@@ -28,4 +28,4 @@ class _FirestoreTimestampAdapter
 ///
 /// Convert a timestamp to a map with seconds and nanoseconds information.
 final SembastTypeAdapter<Timestamp, Map<String, dynamic>>
-    sembastFirestoreTimestampAdapter = _FirestoreTimestampAdapter();
+sembastFirestoreTimestampAdapter = _FirestoreTimestampAdapter();

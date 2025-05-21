@@ -31,4 +31,4 @@ class _FirestoreGeoPointAdapter
 ///
 /// Convert a GeoPoint to a map with latitude and longitude information.
 final SembastTypeAdapter<GeoPoint, Map<String, dynamic>>
-    sembastFirestoreGeoPointAdapter = _FirestoreGeoPointAdapter();
+sembastFirestoreGeoPointAdapter = _FirestoreGeoPointAdapter();

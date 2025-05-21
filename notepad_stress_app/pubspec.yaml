@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.5.0
+  sdk: ^3.7.0
 
 dependencies:
   flutter:
@@ -31,7 +31,7 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons:
+  cupertino_icons: ">=1.0.8"
   tekartik_app_rx_utils:
     git:
       url: https://github.com/tekartik/app_flutter_utils.dart
@@ -40,7 +40,7 @@ dependencies:
     version: '>=0.1.0'
   flutter_lorem:
   rxdart: '>=0.27.7'
-  sembast: '>=3.7.3+2'
+  sembast: ">=3.7.4+3"
 dev_dependencies:
   flutter_test:
     sdk: flutter
