@@ -103,10 +103,9 @@ void cvSembastDatabaseDevMenu(SembastDatabaseDevMenuContext context) {
     StreamSubscription? subscription;
     item('register singleton', () async {
       subscription = singleton.onRecord(db).listen((record) {
-        var diff =
-            Timestamp.now()
-                .difference(record?.timestamp.v ?? Timestamp.zero)
-                .inMilliseconds;
+        var diff = Timestamp.now()
+            .difference(record?.timestamp.v ?? Timestamp.zero)
+            .inMilliseconds;
         write(
           'latest record: diff $diff ms, ${Timestamp.now().toIso8601String()}, ${record?.dbToJsonPretty()}',
         );
