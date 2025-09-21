@@ -10,7 +10,6 @@ dependencies:
     git:
       url: https://github.com/tekartik/sembast_flutter_more.dart
       path: cloud_firestore_type_adapters
-      ref: dart3a
     version: '>=0.1.0'
 ```
 

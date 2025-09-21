@@ -33,7 +33,6 @@ dependencies:
     git:
       url: https://github.com/tekartik/sembast_flutter_more.dart
       path: sembast_db_explorer
-      ref: dart3a
     version: '>=0.1.0'
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -41,13 +40,11 @@ dependencies:
   tekartik_app_flutter_sembast:
     git:
       url: https://github.com/tekartik/app_flutter_utils.dart
-      ref: dart3a
       path: app_sembast
     version: '>=0.1.0'
   tekartik_common_utils:
     git:
       url: https://github.com/tekartik/common_utils.dart
-      ref: dart3a
     version: '>=0.1.0'
 dev_dependencies:
   flutter_test:
