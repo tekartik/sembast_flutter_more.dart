@@ -9,6 +9,8 @@ dependencies:
   flutter:
     sdk: flutter
   sembast: ">=3.7.4+3"
+  sembast_web: "2.4.2"
+  path:
 dev_dependencies:
   flutter_test:
     sdk: flutter
