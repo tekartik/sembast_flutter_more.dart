@@ -10,6 +10,7 @@ import 'package:tekartik_notepad_sembast_app/provider/note_provider.dart';
 import 'import.dart';
 
 var autoStart = false;
+
 // var autoStart = devWarning(true);
 // var autoFiltering = '28';
 
