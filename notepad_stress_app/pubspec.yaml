@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.12.0
+  sdk: ^3.13.0
 
 dependencies:
   flutter:
@@ -38,7 +38,8 @@ dependencies:
     version: '>=0.1.0'
   flutter_lorem:
   rxdart: '>=0.27.7'
-  sembast: ">=3.7.4+3"
+  sembast: ">=3.8.8"
+  material_ui: ">=1.5.0"
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:sembast/utils/database_utils.dart';
 import 'package:sembast_db_explorer/src/data/db_data.dart';
 import 'package:sembast_db_explorer/src/screen/store_home_screen.dart';

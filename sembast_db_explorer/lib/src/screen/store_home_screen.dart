@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:sembast/sembast.dart';
 import 'package:sembast_db_explorer/src/data/db_data.dart';
 import 'package:sembast_db_explorer/src/screen/record_home_screen.dart';
