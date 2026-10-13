@@ -35,7 +35,11 @@ class _RecordHomeScreenState extends State<RecordHomeScreen> {
       body: StreamBuilder<RecordSnapshot?>(
         stream: _recordStream,
         builder: (context, snapshot) {
-          if (!snapshot.hasData) {
+          if (snapshot.hasError) {
+            return Center(child: Text('${snapshot.error}'));
+          }
+          // A missing record is a null snapshot, hasData is false.
+          if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           }
           var recordSnapshot = snapshot.data;
@@ -48,7 +52,10 @@ class _RecordHomeScreenState extends State<RecordHomeScreen> {
           } catch (_) {
             result = recordSnapshot.toString();
           }
-          return Text(result ?? '<no_data>');
+          return SingleChildScrollView(
+            padding: const EdgeInsets.all(8),
+            child: Text(result ?? '<no_data>'),
+          );
         },
       ),
     );
