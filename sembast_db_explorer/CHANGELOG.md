@@ -1,3 +1,4 @@
-## 0.0.1
+## 0.1.0
 
-* TODO: Describe initial release.
+* `showDatabaseExplorer(context, database)`: stores, records and record value
+  screens, read only, built on `material_ui`.

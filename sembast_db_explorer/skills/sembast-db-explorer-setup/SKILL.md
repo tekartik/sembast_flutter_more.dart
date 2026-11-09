@@ -47,9 +47,13 @@ for end users.
   is not public API.
 * Signature: `Future<void> showDatabaseExplorer(BuildContext context, Database
   database)`. It calls `Navigator.of(context).push(MaterialPageRoute(...))`, so
-  the context must be below a `MaterialApp` (or at least a `Navigator` plus
-  `Material`/`Directionality`) and must still be mounted. The returned future
-  completes when the user pops back out of the explorer.
+  the context must be below a `MaterialApp` and must still be mounted. The
+  returned future completes when the user pops back out of the explorer.
+* The screens are built on `package:material_ui`, not
+  `package:flutter/material.dart`: the app must use material_ui's
+  `MaterialApp` (`import 'package:material_ui/material_ui.dart'`). Under
+  Flutter's own `MaterialApp` the first screen fails with "No
+  MaterialLocalizations found".
 * Opening a database is asynchronous: check `mounted` (or capture the
   `NavigatorState`) before and after the `await`, then call
   `showDatabaseExplorer`.
@@ -72,8 +76,7 @@ for end users.
 * **Record screen**: `record.onSnapshot(db)`, live, showing the value
   pretty-printed with `jsonPretty` from `tekartik_common_utils`, falling back
   to `toString()` when the value is not json encodable. A record that does not
-  exist (or is deleted while displayed) leaves a progress indicator, because
-  the snapshot is `null`.
+  exist (or is deleted while displayed) shows "Not found".
 * It is strictly read-only: no editing, no adding, no deleting, no export, no
   search. Use the sembast API (or `exportDatabase` from
   `package:sembast/utils/sembast_import_export.dart`) for those.
@@ -91,8 +94,8 @@ for end users.
 ### Minimal app showing the explorer
 
 ```dart
-import 'package:flutter/material.dart';
-import 'package:sembast/sembast_io.dart';
+import 'package:material_ui/material_ui.dart';
+import 'package:sembast/sembast_memory.dart';
 import 'package:sembast_db_explorer/sembast_db_explorer.dart';
 
 void main() => runApp(const ExplorerApp());
@@ -115,7 +118,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Future<void> _showExplorer() async {
-    var db = await databaseFactoryIo.openDatabase(
+    // A memory database here; with databaseFactoryIo, give a full path (an
+    // app documents directory), a relative one fails on Android and iOS.
+    var db = await databaseFactoryMemory.openDatabase(
       'sembast_db_explorer_app.db',
       version: 2,
       onVersionChanged: (db, oldVersion, newVersion) async {
@@ -147,7 +152,7 @@ class _HomePageState extends State<HomePage> {
 
 ```dart
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:sembast/sembast.dart';
 import 'package:sembast_db_explorer/sembast_db_explorer.dart';
 
@@ -175,7 +180,7 @@ class DatabaseExplorerTile extends StatelessWidget {
 ### Opening lazily, safe across the async gap
 
 ```dart
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:sembast/sembast.dart';
 import 'package:sembast_db_explorer/sembast_db_explorer.dart';
 
