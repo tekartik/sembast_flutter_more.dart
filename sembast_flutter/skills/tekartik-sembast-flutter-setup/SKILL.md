@@ -25,8 +25,9 @@ export 'package:sembast_web/sembast_web.dart';
 Both of those are safe to import on every platform (the platform-specific
 getters throw only when accessed on the wrong one), so one import gives a
 Flutter app the io factory, the web factory and the whole sembast API. It adds
-no code of its own; the repository exists to CI-test sembast in a Flutter
-context (VM, dart2js and WASM).
+no code of its own; the repository exists to test sembast in a Flutter context
+(CI runs `flutter test` on the VM; the `tool/` scripts run it in Chrome with
+dart2js and WASM).
 
 ## Guidelines
 
