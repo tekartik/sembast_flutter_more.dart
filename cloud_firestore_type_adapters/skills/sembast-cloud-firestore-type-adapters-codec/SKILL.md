@@ -36,8 +36,9 @@ Flutter app.
       version: '>=0.1.0'
   ```
   It depends on `sembast` and `cloud_firestore_platform_interface` only (not on
-  the `cloud_firestore` plugin), so it also works in a pure Dart-side unit
-  test of a Flutter package.
+  the `cloud_firestore` plugin, no Firebase setup needed), so it also works in
+  a `flutter test` unit test. It needs the Flutter SDK (`dart test` alone
+  cannot load it).
 * `tekartik_app_sembast_firestore_type_adapters` (in `app_common_utils.dart`)
   is the twin package for the `tekartik_firebase_firestore` types. It declares
   the **same symbol names** (`sembastFirestoreCodec`,
@@ -68,6 +69,9 @@ Flutter app.
   `{'@FirestoreGeoPoint': {...}}`. That is what `exportDatabase` returns, so
   an export can be re-imported with `importDatabase(..., codec:
   sembastFirestoreCodec)`.
+* A `Blob` keeps the `Uint8List` it was built with and sembast keeps the same
+  object in memory: changing the bytes of a stored or read `Blob` changes the
+  record in memory without any write. Copy the bytes before changing them.
 * Nothing else is adapted: `DocumentReference`, `FieldValue`
   (`FieldValue.serverTimestamp()`), `VectorValue` and your own model classes
   still have to be converted to plain json encodable values (a path `String`,

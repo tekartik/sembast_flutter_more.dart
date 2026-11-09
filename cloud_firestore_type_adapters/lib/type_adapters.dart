@@ -1,3 +1,13 @@
+/// Sembast type adapters for the cloud_firestore `Timestamp`, `Blob` and
+/// `GeoPoint`, and [sembastFirestoreCodec] to open a sembast database
+/// storing them:
+///
+/// ```dart
+/// var db = await factory.openDatabase('cache.db', codec: sembastFirestoreCodec);
+/// ```
+///
+/// The codec replaces sembast's default adapters: sembast's own `Timestamp`
+/// and `Blob` cannot be stored in such a database.
 library;
 
 import 'dart:convert';
