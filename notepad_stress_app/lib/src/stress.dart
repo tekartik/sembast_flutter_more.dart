@@ -114,7 +114,9 @@ class Stress {
 
   Future<void> _listener(bool running) async {
     print('Running $running');
-    if (running && !_lock.locked) {
+    if (running) {
+      // A previous run still ending (its tasks see the stop at their next
+      // step) holds the lock: start once it is done, if still running.
       await _lock.synchronized(() async {
         print('_locked Running $isRunning');
         if (isRunning) {
@@ -156,11 +158,11 @@ class Stress {
           .query(
             finder: Finder(
               sortOrders: [SortOrder('date', false)],
-              filter: Filter.custom(
-                (record) =>
-                    _contains(snapshotToNote(record).content.v, filterText) ||
-                    _contains(snapshotToNote(record).content.v, filterText),
-              ),
+              filter: Filter.custom((record) {
+                var note = snapshotToNote(record);
+                return _contains(note.title.v, filterText) ||
+                    _contains(note.content.v, filterText);
+              }),
             ),
           )
           .onSnapshots(noteProvider.db!)
