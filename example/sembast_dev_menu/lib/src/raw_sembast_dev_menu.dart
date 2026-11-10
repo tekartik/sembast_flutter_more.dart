@@ -40,7 +40,10 @@ void rawSembastDevMenu(SembastDevMenuContext context) {
   }
 
   item('delete db', () async {
-    await factory.deleteDatabase('test.db');
+    // The database of this menu (in the context folder), closed first: the
+    // next item opens a new one.
+    await closeDb();
+    await factory.deleteDatabase(dbName);
   });
   item('open db', () async {
     await openDb();
@@ -48,7 +51,11 @@ void rawSembastDevMenu(SembastDevMenuContext context) {
   item('close db', () async {
     await closeDb();
   });
-  item('clear item', () async {});
+  item('clear item', () async {
+    var db = await openDb();
+    var count = await store.delete(db);
+    write('deleted $count');
+  });
   item('add item', () async {
     var db = await openDb();
     var key = await store.add(db, {'timestamp': Timestamp.now()});
